@@ -39,4 +39,3 @@ Designed with a **luxury editorial style**, inspired by global institutions like
 
 ---
 
-## 📁 Project Structure
