@@ -3,150 +3,668 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Bio data of Bhupinder Singh Liddar, retired Canadian diplomat, publisher, and broadcaster." />
-  <meta name="keywords" content="Bhupinder Singh Liddar, bio data, diplomat, Canada, India, UNEP" />
+  <meta
+    name="description"
+    content="Curriculum vitae of Bhupinder S. Liddar, featuring education, professional experience, activities, memberships, and international travel."
+  />
+  <meta
+    name="keywords"
+    content="Bhupinder S. Liddar, CV, curriculum vitae, diplomat, Canada, UNEP, Ottawa, Nairobi"
+  />
   <meta name="author" content="Bhupinder Singh Liddar" />
   <meta name="robots" content="index, follow" />
-  <title>Bhupinder Singh Liddar | Bio Data</title>
+  <title>Bhupinder Singh Liddar | Curriculum Vitae</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .cv-stage {
+      background:
+        radial-gradient(circle at top left, rgba(212, 175, 55, 0.12), transparent 22%),
+        linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
+    }
+
+    .cv-layout {
+      display: grid;
+      grid-template-columns: 360px minmax(0, 1fr);
+      gap: 32px;
+      align-items: start;
+    }
+
+    .cv-sidebar {
+      position: sticky;
+      top: 128px;
+      display: grid;
+      gap: 20px;
+    }
+
+    .cv-panel {
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(10, 25, 47, 0.08);
+      border-radius: 28px;
+      box-shadow: 0 22px 50px rgba(10, 25, 47, 0.08);
+      overflow: hidden;
+    }
+
+    .cv-profile-visual {
+      position: relative;
+      min-height: 260px;
+      background:
+        linear-gradient(160deg, rgba(10, 25, 47, 0.96) 0%, rgba(17, 34, 64, 0.9) 100%);
+      overflow: hidden;
+    }
+
+    .cv-profile-visual::before,
+    .cv-profile-visual::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.18);
+    }
+
+    .cv-profile-visual::before {
+      width: 180px;
+      height: 180px;
+      top: -56px;
+      right: -36px;
+    }
+
+    .cv-profile-visual::after {
+      width: 120px;
+      height: 120px;
+      bottom: -34px;
+      left: -24px;
+    }
+
+    .cv-profile-image {
+      width: 100%;
+      height: 100%;
+      min-height: 260px;
+      object-fit: cover;
+      object-position: center top;
+      mix-blend-mode: luminosity;
+      opacity: 0.92;
+    }
+
+    .cv-profile-body {
+      padding: 28px;
+    }
+
+    .cv-name {
+      font-size: 2rem;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .cv-role {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.3rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .cv-contact-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .cv-contact-item {
+      padding: 14px 16px;
+      background: linear-gradient(180deg, #ffffff 0%, #f6f8fb 100%);
+      border: 1px solid rgba(10, 25, 47, 0.08);
+      border-radius: 18px;
+    }
+
+    .cv-contact-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .cv-contact-value {
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+      line-height: 1.6;
+      word-break: break-word;
+    }
+
+    .cv-note {
+      padding: 22px 24px;
+    }
+
+    .cv-note p {
+      color: var(--text-secondary);
+      line-height: 1.9;
+      font-size: 0.98rem;
+    }
+
+    .cv-content {
+      display: grid;
+      gap: 24px;
+    }
+
+    .cv-card {
+      background: rgba(255, 255, 255, 0.97);
+      border: 1px solid rgba(10, 25, 47, 0.08);
+      border-radius: 30px;
+      padding: 34px;
+      box-shadow: 0 24px 60px rgba(10, 25, 47, 0.08);
+    }
+
+    .cv-card-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: end;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .cv-card-title {
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      color: var(--navy);
+    }
+
+    .cv-kicker {
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .cv-summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .cv-summary-box {
+      padding: 18px 20px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, #f9fbfd 0%, #eef3f8 100%);
+      border: 1px solid rgba(10, 25, 47, 0.07);
+    }
+
+    .cv-summary-box strong {
+      display: block;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .cv-summary-box span {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .cv-education-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .cv-education-item {
+      padding: 22px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #ffffff 0%, #f5f8fb 100%);
+      border: 1px solid rgba(10, 25, 47, 0.08);
+    }
+
+    .cv-education-year {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 78px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .cv-education-item h3 {
+      font-size: 1.15rem;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .cv-education-item p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .cv-timeline {
+      position: relative;
+      display: grid;
+      gap: 18px;
+    }
+
+    .cv-timeline::before {
+      content: "";
+      position: absolute;
+      top: 4px;
+      bottom: 4px;
+      left: 14px;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(212, 175, 55, 0.8), rgba(10, 25, 47, 0.08));
+    }
+
+    .cv-timeline-item {
+      position: relative;
+      padding-left: 44px;
+    }
+
+    .cv-timeline-item::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: 7px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 4px solid var(--gold);
+      box-shadow: 0 0 0 5px rgba(212, 175, 55, 0.12);
+    }
+
+    .cv-timeline-card {
+      padding: 20px 22px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
+      border: 1px solid rgba(10, 25, 47, 0.08);
+    }
+
+    .cv-timeline-period {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .cv-timeline-card h3 {
+      font-size: 1.12rem;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .cv-timeline-card p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .cv-list-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .cv-list-card {
+      padding: 24px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, #ffffff 0%, #f6f8fb 100%);
+      border: 1px solid rgba(10, 25, 47, 0.08);
+    }
+
+    .cv-list-card h3 {
+      font-size: 1.2rem;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .cv-bullet-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+
+    .cv-bullet-list li {
+      position: relative;
+      padding-left: 22px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .cv-bullet-list li::before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .cv-travel {
+      padding: 26px;
+      border-radius: 26px;
+      background:
+        linear-gradient(135deg, rgba(10, 25, 47, 0.98) 0%, rgba(17, 34, 64, 0.94) 100%);
+      color: var(--white);
+    }
+
+    .cv-travel .cv-kicker,
+    .cv-travel .cv-card-title {
+      color: var(--white);
+    }
+
+    .cv-travel .cv-kicker {
+      opacity: 0.72;
+    }
+
+    .cv-travel p {
+      color: rgba(255, 255, 255, 0.84);
+      line-height: 1.95;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 1120px) {
+      .cv-layout,
+      .cv-summary,
+      .cv-education-grid,
+      .cv-list-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cv-sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .cv-card,
+      .cv-profile-body,
+      .cv-note {
+        padding: 24px 22px;
+      }
+
+      .cv-card {
+        border-radius: 24px;
+      }
+
+      .cv-name {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
 </head>
 <body class="inner-page" data-page="bio-data">
   <div id="site-header"></div>
 
   <main class="page-main">
-    <section class="page-banner section-pad" aria-labelledby="bio-banner-title">
+    <section class="page-banner section-pad" aria-labelledby="cv-banner-title">
       <div class="container">
         <div class="page-banner-inner">
-          <p class="section-label">Bio Data</p>
-          <h1 class="page-banner-title" id="bio-banner-title">A Life of Diplomatic Service</h1>
+          <p class="section-label">Curriculum Vitae</p>
+          <h1 class="page-banner-title" id="cv-banner-title">Bhupinder S. Liddar</h1>
           <p class="page-banner-text">
-            This page brings together Bhupinder Singh Liddar's background, distinguished service, and major career milestones in one place.
+            A polished CV presentation highlighting diplomatic service, editorial leadership,
+            international affairs work, public commentary, and a wide global footprint.
           </p>
         </div>
       </div>
     </section>
 
-    <section id="about" class="section-pad" aria-labelledby="about-heading">
+    <section class="section-pad cv-stage" aria-labelledby="cv-profile-title">
       <div class="container">
-        <div class="about-grid">
-          <div class="fade-in-left">
-            <p class="section-label">About</p>
-            <h2 class="section-title" id="about-heading">A Life of<br/>Diplomatic Service</h2>
-            <div class="divider"></div>
-            <p>Bhupinder Singh Liddar is a Kenya-born retired Canadian diplomat who has dedicated over four decades to public service, international diplomacy, and media. He began his distinguished career on Parliament Hill in Ottawa in 1977, where he served until 1988.</p>
-            <p>Known for his eloquence and commitment to intercultural dialogue, Bhupinder has played a pivotal role in shaping Canada's diplomatic narrative, particularly in its relationship with South Asia and the broader Commonwealth nations.</p>
-            <p>His career spans Parliament Hill, flagship media platforms, and high-level diplomatic posts, culminating in his appointment as Consul General of Canada in Chandigarh, India in 2004, and his role as UNEP Deputy Ambassador representing Canada on the world environmental stage.</p>
+        <div class="cv-layout">
+          <aside class="cv-sidebar">
+            <article class="cv-panel fade-in-left visible">
+              <div class="cv-profile-visual">
+                <img
+                  src="images/profile-5.png"
+                  alt="Portrait of Bhupinder Singh Liddar"
+                  class="cv-profile-image"
+                  loading="lazy"
+                  width="520"
+                  height="560"
+                />
+              </div>
+              <div class="cv-profile-body">
+                <p class="section-label">Profile</p>
+                <h2 class="cv-name" id="cv-profile-title">Bhupinder S. Liddar</h2>
+                <p class="cv-role">Diplomat, Editor, Publisher and Broadcaster</p>
 
-            <blockquote class="about-quote-block fade-in delay-3">
-              <p class="about-quote-text">Diplomacy is not merely the art of negotiation, it is the art of listening, understanding, and building lasting bridges between cultures and peoples.</p>
-            </blockquote>
+                <div class="cv-contact-list">
+                  <div class="cv-contact-item">
+                    <span class="cv-contact-label">Email</span>
+                    <span class="cv-contact-value">bsliddar@hotmail.com</span>
+                  </div>
+                  <div class="cv-contact-item">
+                    <span class="cv-contact-label">Place Of Birth</span>
+                    <span class="cv-contact-value">Nairobi, Kenya</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="cv-panel cv-note fade-in-left visible">
+              <p>
+                A distinguished record across diplomacy, multilateral engagement, publishing,
+                broadcasting, parliamentary service, and international public affairs.
+              </p>
+            </article>
+          </aside>
+
+          <div class="cv-content">
+            <section class="cv-card fade-in visible" aria-labelledby="cv-overview-title">
+              <div class="cv-card-header">
+                <div>
+                  <p class="cv-kicker">Overview</p>
+                  <h2 class="cv-card-title" id="cv-overview-title">Diplomatic service shaped by media, policy, and international engagement</h2>
+                </div>
+              </div>
+              <p class="section-subtitle" style="max-width: 100%;">
+                The CV presents a career spanning diplomatic appointments, public affairs,
+                international commentary, publishing, broadcasting, parliamentary research,
+                and representation in multilateral forums.
+              </p>
+
+              <div class="cv-summary">
+                <div class="cv-summary-box">
+                  <strong>Diplomatic Work</strong>
+                  <span>Deputy Permanent Representative of Canada to UNEP &amp; UN-Habitat in Nairobi.</span>
+                </div>
+                <div class="cv-summary-box">
+                  <strong>Editorial Work</strong>
+                  <span>Publisher and editor of <em>Diplomat &amp; International Canada</em> magazine and editor of <em>Parliamentary Liaison</em>.</span>
+                </div>
+                <div class="cv-summary-box">
+                  <strong>Public Voice</strong>
+                  <span>Host, columnist, commentator, and contributor across television, newspapers, and public affairs platforms.</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="cv-card fade-in visible" aria-labelledby="cv-education-title">
+              <div class="cv-card-header">
+                <div>
+                  <p class="cv-kicker">Education</p>
+                  <h2 class="cv-card-title" id="cv-education-title">Academic foundation</h2>
+                </div>
+              </div>
+
+              <div class="cv-education-grid">
+                <article class="cv-education-item">
+                  <span class="cv-education-year">1975</span>
+                  <h3>M.A., Social Sciences</h3>
+                  <p>University of Illinois, U.S.A.</p>
+                </article>
+
+                <article class="cv-education-item">
+                  <span class="cv-education-year">1973</span>
+                  <h3>B.A., International Relations</h3>
+                  <p>Rockford College, Illinois</p>
+                </article>
+
+                <article class="cv-education-item">
+                  <span class="cv-education-year">School</span>
+                  <h3>Duke of Gloucester High School</h3>
+                  <p>Nairobi</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="cv-card fade-in visible" aria-labelledby="cv-experience-title">
+              <div class="cv-card-header">
+                <div>
+                  <p class="cv-kicker">Professional Experience</p>
+                  <h2 class="cv-card-title" id="cv-experience-title">Career record</h2>
+                </div>
+              </div>
+
+              <div class="cv-timeline">
+                <div class="cv-timeline-item">
+                  <article class="cv-timeline-card">
+                    <span class="cv-timeline-period">2006 - 2009</span>
+                    <h3>Deputy Permanent Representative of Canada to UNEP &amp; UN-Habitat</h3>
+                    <p>Canadian High Commission, Nairobi, Kenya.</p>
+                  </article>
+                </div>
+
+                <div class="cv-timeline-item">
+                  <article class="cv-timeline-card">
+                    <span class="cv-timeline-period">Oct. 2003 - Dec. 2006</span>
+                    <h3>Department of Foreign Affairs &amp; International Trade Canada</h3>
+                    <p>Department of Foreign Affairs &amp; International Trade Canada.</p>
+                  </article>
+                </div>
+
+                <div class="cv-timeline-item">
+                  <article class="cv-timeline-card">
+                    <span class="cv-timeline-period">1989 - 2003</span>
+                    <h3>Publisher and Editor</h3>
+                    <p><em>Diplomat &amp; International Canada</em> magazine.</p>
+                  </article>
+                </div>
+
+                <div class="cv-timeline-item">
+                  <article class="cv-timeline-card">
+                    <span class="cv-timeline-period">1986 - 2003</span>
+                    <h3>Editor</h3>
+                    <p><em>Parliamentary Liaison</em> Newsletter, Ottawa.</p>
+                  </article>
+                </div>
+
+                <div class="cv-timeline-item">
+                  <article class="cv-timeline-card">
+                    <span class="cv-timeline-period">Broadcast Media</span>
+                    <h3>Host, The Diplomatic World</h3>
+                    <p>CPAC-TV weekly panel discussion focused on current international issues.</p>
+                  </article>
+                </div>
+
+                <div class="cv-timeline-item">
+                  <article class="cv-timeline-card">
+                    <span class="cv-timeline-period">1977 - 1999</span>
+                    <h3>Print Commentary and Journalism</h3>
+                    <p><em>The Hill Times</em>, <em>Ottawa Citizen</em>, and a Diplomats column in <em>The Ottawa Sun</em> from June 1992 to February 1994.</p>
+                  </article>
+                </div>
+
+                <div class="cv-timeline-item">
+                  <article class="cv-timeline-card">
+                    <span class="cv-timeline-period">1986 - 1988</span>
+                    <h3>Associate Editor</h3>
+                    <p><em>International Perspectives</em>, Ottawa.</p>
+                  </article>
+                </div>
+
+                <div class="cv-timeline-item">
+                  <article class="cv-timeline-card">
+                    <span class="cv-timeline-period">1977 - 1980 and 1985 - 1988</span>
+                    <h3>Research Assistant</h3>
+                    <p>House of Commons, Ottawa.</p>
+                  </article>
+                </div>
+
+                <div class="cv-timeline-item">
+                  <article class="cv-timeline-card">
+                    <span class="cv-timeline-period">1981 - 1985</span>
+                    <h3>Self-Employed</h3>
+                    <p>Small business, Zimbabwe.</p>
+                  </article>
+                </div>
+
+                <div class="cv-timeline-item">
+                  <article class="cv-timeline-card">
+                    <span class="cv-timeline-period">1976 and 1975</span>
+                    <h3>Early Career Roles</h3>
+                    <p>Stockbroker, Merrill Lynch, Ottawa, 1976, and United Nations Intern, New York, Summer 1975.</p>
+                  </article>
+                </div>
+
+                <div class="cv-timeline-item">
+                  <article class="cv-timeline-card">
+                    <span class="cv-timeline-period">Delegation Work</span>
+                    <h3>Parliamentary Delegations</h3>
+                    <p>Accompanied Canadian parliamentary delegations to Egypt, Iraq, Israel, Jordan, Palestinian Authority, Syria, and Tunisia in 1978, 1988, and 1992, and organized and accompanied the Canadian parliamentary delegation to India and Pakistan in 1991.</p>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            <section class="cv-card fade-in visible" aria-labelledby="cv-activities-title">
+              <div class="cv-card-header">
+                <div>
+                  <p class="cv-kicker">Additional Sections</p>
+                  <h2 class="cv-card-title" id="cv-activities-title">Activities, memberships, and travel</h2>
+                </div>
+              </div>
+
+              <div class="cv-list-grid">
+                <article class="cv-list-card">
+                  <h3>Other Activities</h3>
+                  <ul class="cv-bullet-list">
+                    <li>Regular commentator in Ottawa, Canada, on radio and television on international and diplomatic issues.</li>
+                    <li>Founding committee member, Ottawa Diplomatic Association.</li>
+                    <li>Organized the first Waisakhi celebration on Parliament Hill in 1987 and later in 1988 and 1999.</li>
+                    <li>Chair, Sikhs in Canada Committee, to launch the Canada Post stamp in 1999.</li>
+                  </ul>
+                </article>
+
+                <article class="cv-list-card">
+                  <h3>Membership</h3>
+                  <ul class="cv-bullet-list">
+                    <li>Canadian Parliamentary Press Gallery.</li>
+                    <li>National Press Club of Canada.</li>
+                    <li>Canadian Institute for International Affairs.</li>
+                    <li>United Nations Association of Canada.</li>
+                    <li>Society for International Development.</li>
+                  </ul>
+                </article>
+              </div>
+            </section>
+
+            <section class="cv-travel fade-in visible" aria-labelledby="cv-travel-title">
+              <p class="cv-kicker">Travel</p>
+              <h2 class="cv-card-title" id="cv-travel-title">International exposure across multiple regions</h2>
+              <p>
+                Austria, Brazil, Burundi, China, Cuba, Cyprus, Egypt, Finland, France, Germany,
+                Hong Kong, Hungary, India, Iran, Iraq, Italy, Japan, Jordan, Kenya, Lebanon,
+                Libya, Morocco, Netherlands, Norway, Rwanda, Saudi Arabia, South Africa, Spain,
+                Sri Lanka, Syria, Sweden, Switzerland, Taiwan, Tanzania, Thailand, Trinidad and Tobago,
+                Tunisia, Turkey, Uganda, U.K., U.S.A., Yugoslavia, Zaire, and Zimbabwe.
+              </p>
+            </section>
           </div>
-
-          <div class="about-image-col fade-in-right delay-2">
-            <img
-              src="images/profile-4.png"
-              alt="Bhupinder Singh Liddar at a formal diplomatic event"
-              class="about-image"
-              loading="lazy"
-              width="520"
-              height="500"
-            />
-            <div class="about-image-accent" aria-hidden="true"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience" class="section-pad" aria-labelledby="experience-heading">
-      <div class="container">
-        <div style="text-align:center; margin-bottom: 16px;">
-          <p class="section-label" style="justify-content: center;">Career Journey</p>
-          <h2 class="section-title" id="experience-heading" style="text-align:center;">Four Decades of<br/>Distinguished Service</h2>
-          <p class="section-subtitle" style="margin: 16px auto 0; text-align:center;">A timeline of milestones that shaped a remarkable diplomatic career</p>
-        </div>
-        <div class="timeline-wrapper" role="list">
-          <div class="timeline-line" aria-hidden="true"></div>
-
-          <div class="timeline-item fade-in delay-1" role="listitem">
-            <div class="timeline-content">
-              <div class="timeline-year">1977</div>
-              <div class="timeline-role">Parliamentary Staff</div>
-              <div class="timeline-org">Parliament Hill, Ottawa, Canada.</div>
-              <div class="timeline-desc">Research Assistant to Canadian Members of Parliament.</div>
-            </div>
-            <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
-            <div class="timeline-empty"></div>
-          </div>
-
-          <div class="timeline-item fade-in delay-2" role="listitem">
-            <div class="timeline-empty"></div>
-            <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
-            <div class="timeline-content">
-              <div class="timeline-year">1988</div>
-              <div class="timeline-role">Founder &amp; Publisher</div>
-              <div class="timeline-org">Diplomat and International Canada Magazine</div>
-              <div class="timeline-desc">Founded Canada's foremost publication covering international affairs, foreign policy, and the Ottawa diplomatic community.</div>
-            </div>
-          </div>
-
-          <div class="timeline-item fade-in delay-3" role="listitem">
-            <div class="timeline-content">
-              <div class="timeline-year">1990s</div>
-              <div class="timeline-role">Diplomats Columnist</div>
-              <div class="timeline-org">Ottawa Citizen</div>
-              <div class="timeline-desc">Wrote a regular weekly column on diplomatic affairs.</div>
-            </div>
-            <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
-            <div class="timeline-empty"></div>
-          </div>
-
-          <div class="timeline-item fade-in delay-4" role="listitem">
-            <div class="timeline-empty"></div>
-            <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
-            <div class="timeline-content">
-              <div class="timeline-year">1990s-2000s</div>
-              <div class="timeline-role">Television Host</div>
-              <div class="timeline-org">Diplomatic World TV (CPAC)</div>
-              <div class="timeline-desc">Hosted the acclaimed <em>Diplomatic World</em> television program on CPAC, interviewing global leaders, ambassadors, and policy makers on international affairs.</div>
-            </div>
-          </div>
-
-          <div class="timeline-item fade-in delay-5" role="listitem">
-            <div class="timeline-content">
-              <div class="timeline-year">2004</div>
-              <div class="timeline-role">Consul General of Canada</div>
-              <div class="timeline-org">Chandigarh, India</div>
-              <div class="timeline-desc">Appointed Canada's Consul General in Chandigarh, India.</div>
-            </div>
-            <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
-            <div class="timeline-empty"></div>
-          </div>
-
-          <div class="timeline-item fade-in delay-1" role="listitem">
-            <div class="timeline-empty"></div>
-            <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
-            <div class="timeline-content">
-              <div class="timeline-year">Post-2004</div>
-              <div class="timeline-role">Deputy Ambassador</div>
-              <div class="timeline-org">UNEP - United Nations Environment Programme</div>
-              <div class="timeline-desc">Served as UNEP Deputy Ambassador, representing Canada in multilateral environmental negotiations and championing sustainable development on the world stage.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="personal" class="section-pad" aria-label="Personal quote">
-      <div class="container">
-        <div class="personal-inner">
-          <span class="personal-quote-mark fade-in" aria-hidden="true">&ldquo;</span>
-          <blockquote class="personal-quote fade-in delay-1">
-            Bhupinder Singh Liddar is married to <strong>Vanita Rani.</strong>
-          </blockquote>
-          <div class="personal-divider fade-in delay-2" aria-hidden="true"></div>
-          <p class="personal-credit fade-in delay-3">Bhupinder Singh Liddar &mdash; Diplomat &bull; Author &bull; Broadcaster</p>
         </div>
       </div>
     </section>
