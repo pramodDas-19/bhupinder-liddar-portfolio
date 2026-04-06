@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Articles, opinion pieces, and publication links featuring Bhupinder S. Liddar across National Observer, Ottawa Citizen, New Canadian Media, and The Hill Times."
+  />
+  <meta
+    name="keywords"
+    content="Bhupinder S. Liddar, articles, media, National Observer, Ottawa Citizen, New Canadian Media, The Hill Times"
+  />
+  <meta name="author" content="Bhupinder Singh Liddar" />
+  <meta name="robots" content="index, follow" />
+  <title>Bhupinder Singh Liddar | Articles &amp; Media</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .articles-stage {
+      background:
+        radial-gradient(circle at top left, rgba(212, 175, 55, 0.12), transparent 22%),
+        linear-gradient(180deg, #ffffff 0%, #f6f8fb 100%);
+    }
+
+    .articles-layout {
+      display: grid;
+      grid-template-columns: 340px minmax(0, 1fr);
+      gap: 32px;
+      align-items: start;
+    }
+
+    .articles-sidebar {
+      position: sticky;
+      top: 124px;
+      display: grid;
+      gap: 20px;
+    }
+
+    .articles-panel,
+    .article-card,
+    .publication-card,
+    .media-carousel-card {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(10, 25, 47, 0.08);
+      border-radius: 28px;
+      box-shadow: 0 22px 52px rgba(10, 25, 47, 0.08);
+    }
+
+    .articles-panel {
+      overflow: hidden;
+    }
+
+    .articles-panel-visual {
+      min-height: 250px;
+      position: relative;
+      background:
+        linear-gradient(160deg, rgba(10, 25, 47, 0.97) 0%, rgba(17, 34, 64, 0.92) 100%);
+      overflow: hidden;
+    }
+
+    .articles-panel-visual::before,
+    .articles-panel-visual::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.16);
+    }
+
+    .articles-panel-visual::before {
+      width: 170px;
+      height: 170px;
+      top: -44px;
+      right: -38px;
+    }
+
+    .articles-panel-visual::after {
+      width: 120px;
+      height: 120px;
+      bottom: -28px;
+      left: -18px;
+    }
+
+    .articles-panel-image {
+      width: 100%;
+      height: 100%;
+      min-height: 250px;
+      object-fit: cover;
+      object-position: center top;
+      opacity: 0.9;
+      mix-blend-mode: luminosity;
+    }
+
+    .articles-panel-body {
+      padding: 28px;
+    }
+
+    .articles-panel-body h2 {
+      font-size: 2rem;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .articles-role {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+
+    .articles-panel-body p,
+    .articles-note p,
+    .article-card p,
+    .publication-card p {
+      color: var(--text-secondary);
+      line-height: 1.85;
+    }
+
+    .articles-note {
+      padding: 24px;
+    }
+
+    .articles-quick-links {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .articles-quick-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #ffffff 0%, #f5f8fb 100%);
+      border: 1px solid rgba(10, 25, 47, 0.08);
+      color: var(--navy);
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .articles-quick-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(212, 175, 55, 0.5);
+      color: var(--gold);
+    }
+
+    .articles-content {
+      display: grid;
+      gap: 24px;
+    }
+
+    .article-card,
+    .publication-card,
+    .media-carousel-card {
+      padding: 32px;
+    }
+
+    .article-card-header,
+    .publication-card-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: end;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .article-kicker,
+    .publication-kicker,
+    .link-kicker {
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .article-card-title,
+    .publication-card-title {
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+      color: var(--navy);
+    }
+
+    .media-carousel-card {
+      overflow: hidden;
+    }
+
+    .media-carousel-frame {
+      position: relative;
+      margin-top: 22px;
+      border-radius: 26px;
+      background:
+        linear-gradient(145deg, rgba(10, 25, 47, 0.98) 0%, rgba(17, 34, 64, 0.94) 100%);
+      padding: 24px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .media-carousel-stage {
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      min-height: 520px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .media-carousel-track {
+      display: flex;
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
+
+    .media-slide {
+      min-width: 100%;
+      position: relative;
+    }
+
+    .media-slide img {
+      width: 100%;
+      height: 520px;
+      object-fit: contain;
+      background:
+        radial-gradient(circle at top, rgba(212, 175, 55, 0.12), transparent 42%),
+        linear-gradient(180deg, rgba(10, 25, 47, 0.96) 0%, rgba(8, 17, 33, 1) 100%);
+    }
+
+    .media-slide-caption {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(10, 25, 47, 0.1) 0%, rgba(10, 25, 47, 0.72) 100%);
+      backdrop-filter: blur(12px);
+    }
+
+    .media-slide-caption strong {
+      display: block;
+      color: var(--white);
+      font-size: 1.02rem;
+      margin-bottom: 4px;
+    }
+
+    .media-slide-caption span {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .media-carousel-nav {
+      position: absolute;
+      inset: 50% 14px auto 14px;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .media-carousel-btn {
+      width: 50px;
+      height: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      pointer-events: auto;
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+    }
+
+    .media-carousel-btn:hover {
+      background: rgba(212, 175, 55, 0.92);
+      color: var(--navy);
+      border-color: rgba(212, 175, 55, 0.95);
+      transform: translateY(-1px);
+    }
+
+    .media-carousel-footer {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .media-carousel-counter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .media-carousel-dots {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .media-carousel-dot {
+      width: 14px;
+      height: 14px;
+      border: none;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 0;
+    }
+
+    .media-carousel-dot:hover,
+    .media-carousel-dot[aria-current="true"] {
+      width: 38px;
+      background: var(--gold);
+    }
+
+    .article-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .article-lead {
+      font-size: 1.04rem;
+      color: var(--text-secondary);
+      margin-bottom: 22px;
+    }
+
+    .article-pullquote {
+      margin: 24px 0;
+      padding: 24px 28px;
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, rgba(10, 25, 47, 0.98) 0%, rgba(17, 34, 64, 0.96) 100%);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .article-pullquote::before {
+      content: "";
+      position: absolute;
+      top: -64px;
+      right: -24px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.26) 0%, rgba(212, 175, 55, 0) 68%);
+    }
+
+    .article-pullquote p {
+      position: relative;
+      z-index: 1;
+      color: rgba(255, 255, 255, 0.88);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.36rem;
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    .article-body {
+      display: grid;
+      gap: 18px;
+    }
+
+    .article-body p {
+      font-size: 0.98rem;
+    }
+
+    .article-signoff {
+      padding-top: 18px;
+      border-top: 1px solid rgba(10, 25, 47, 0.08);
+      color: var(--text-muted);
+      font-size: 0.94rem;
+    }
+
+    .publication-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .publication-topline {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .publication-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(10, 25, 47, 0.06);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .publication-intro {
+      margin-bottom: 18px;
+    }
+
+    .publication-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 18px;
+      color: var(--navy);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      transition: var(--transition);
+    }
+
+    .publication-link:hover {
+      color: var(--gold);
+    }
+
+    .article-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .article-list li {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #ffffff 0%, #f6f8fb 100%);
+      border: 1px solid rgba(10, 25, 47, 0.08);
+    }
+
+    .article-list strong {
+      display: block;
+      color: var(--navy);
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .article-list span {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.84rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .article-list p {
+      font-size: 0.93rem;
+      line-height: 1.78;
+    }
+
+    .articles-links-card {
+      background:
+        linear-gradient(135deg, rgba(10, 25, 47, 0.98) 0%, rgba(17, 34, 64, 0.94) 100%);
+      border-radius: 30px;
+      padding: 30px;
+      color: var(--white);
+      box-shadow: 0 24px 60px rgba(10, 25, 47, 0.16);
+    }
+
+    .articles-links-card h2,
+    .articles-links-card p,
+    .articles-links-card a {
+      color: var(--white);
+    }
+
+    .external-links {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .external-links a {
+      display: block;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: var(--transition);
+    }
+
+    .external-links a:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(212, 175, 55, 0.45);
+    }
+
+    .external-links strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .external-links span {
+      display: block;
+      font-size: 0.84rem;
+      opacity: 0.72;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1120px) {
+      .articles-layout,
+      .publication-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .articles-sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .article-card,
+      .publication-card,
+      .media-carousel-card,
+      .articles-panel-body,
+      .articles-note,
+      .articles-links-card {
+        padding: 24px 22px;
+      }
+
+      .article-card,
+      .publication-card,
+      .media-carousel-card,
+      .articles-panel,
+      .articles-links-card {
+        border-radius: 24px;
+      }
+
+      .articles-panel-body h2 {
+        font-size: 1.7rem;
+      }
+
+      .article-pullquote p {
+        font-size: 1.22rem;
+      }
+
+      .media-carousel-frame {
+        padding: 16px;
+        border-radius: 22px;
+      }
+
+      .media-carousel-stage,
+      .media-slide img {
+        min-height: 340px;
+        height: 340px;
+      }
+
+      .media-carousel-nav {
+        inset: auto 12px 12px 12px;
+        transform: none;
+      }
+
+      .media-carousel-footer {
+        grid-template-columns: 1fr;
+      }
+
+      .media-slide-caption {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        padding: 14px;
+      }
+
+      .media-slide-caption strong {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body class="inner-page" data-page="articles-media">
+  <div id="site-header"></div>
+
+  <main class="page-main">
+    <section class="page-banner section-pad" aria-labelledby="articles-banner-title">
+      <div class="container">
+        <div class="page-banner-inner">
+          <p class="section-label">Articles &amp; Media</p>
+          <h1 class="page-banner-title" id="articles-banner-title">Public commentary, opinion writing, and media presence</h1>
+          <p class="page-banner-text">
+            A curated showcase of Bhupinder S. Liddar's bylines, publication archives, and
+            commentary across Canadian media platforms focused on diplomacy, identity,
+            public affairs, and international relations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad articles-stage" aria-labelledby="articles-overview-title">
+      <div class="container">
+        <div class="articles-layout">
+          <aside class="articles-sidebar">
+            <article class="articles-panel fade-in-left visible">
+              <div class="articles-panel-visual">
+                <img
+                  src="images/profile-5.png"
+                  alt="Portrait of Bhupinder Singh Liddar"
+                  class="articles-panel-image"
+                  loading="lazy"
+                  width="520"
+                  height="520"
+                />
+              </div>
+              <div class="articles-panel-body">
+                <p class="section-label">Author Profile</p>
+                <h2 id="articles-overview-title">Bhupinder S. Liddar</h2>
+                <p class="articles-role">Retired Canadian Diplomat, Editor, Publisher, and Commentator</p>
+                <p>
+                  Bhupinder S. Liddar began working as a research assistant on Parliament Hill in 1976,
+                  later became a member of the Parliamentary Press Gallery, served as founding editor and
+                  publisher of <em>Diplomat &amp; International Canada</em>, and retired from the Canadian diplomatic service.
+                </p>
+
+                <div class="articles-quick-links">
+                  <a class="articles-quick-link" href="#media-carousel">
+                    <span>Media image carousel</span>
+                    <span aria-hidden="true">01</span>
+                  </a>
+                  <a class="articles-quick-link" href="#featured-essay">
+                    <span>Featured opinion essay</span>
+                    <span aria-hidden="true">02</span>
+                  </a>
+                  <a class="articles-quick-link" href="#publication-directory">
+                    <span>Publication directory</span>
+                    <span aria-hidden="true">03</span>
+                  </a>
+                  <a class="articles-quick-link" href="#source-links">
+                    <span>External article links</span>
+                    <span aria-hidden="true">04</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="articles-panel articles-note fade-in-left visible">
+              <p>
+                The materials on this page are drawn from the supplied article-content document and
+                organized into a more readable editorial layout, preserving the original publication references.
+              </p>
+            </article>
+          </aside>
+
+          <div class="articles-content">
+            <section class="media-carousel-card fade-in visible" id="media-carousel" aria-labelledby="media-carousel-title">
+              <div class="article-card-header">
+                <div>
+                  <p class="article-kicker">Media Gallery</p>
+                  <h2 class="article-card-title" id="media-carousel-title">Press clippings and publication visuals</h2>
+                </div>
+                <span class="article-meta">15 Images</span>
+              </div>
+
+              <p class="article-lead">
+                A visual carousel built from the images in the <code>images/Media</code> folder,
+                presented as an editorial slideshow with large previews and quick navigation.
+              </p>
+
+              <div class="media-carousel-frame" data-carousel>
+                <div class="media-carousel-stage">
+                  <div class="media-carousel-track">
+                    <figure class="media-slide">
+                      <img src="images/Media/02_page_1.png" alt="Bhupinder S. Liddar media feature 1" loading="lazy" />
+                      <figcaption class="media-slide-caption">
+                        <div>
+                          <strong>Media Feature 01</strong>
+                          <span>Press clipping</span>
+                        </div>
+                        <span>1 / 15</span>
+                      </figcaption>
+                    </figure>
+                    <figure class="media-slide">
+                      <img src="images/Media/03_page_1%20(1).png" alt="Bhupinder S. Liddar media feature 2" loading="lazy" />
+                      <figcaption class="media-slide-caption">
+                        <div>
+                          <strong>Media Feature 02</strong>
+                          <span>Publication scan</span>
+                        </div>
+                        <span>2 / 15</span>
+                      </figcaption>
+                    </figure>
+                    <figure class="media-slide">
+                      <img src="images/Media/05_page_1.png" alt="Bhupinder S. Liddar media feature 3" loading="lazy" />
+                      <figcaption class="media-slide-caption">
+                        <div>
+                          <strong>Media Feature 03</strong>
+                          <span>Publication scan</span>
+                        </div>
+                        <span>3 / 15</span>
+                      </figcaption>
+                    </figure>
+                    <figure class="media-slide">
+                      <img src="images/Media/06pdf_page_1.png" alt="Bhupinder S. Liddar media feature 4" loading="lazy" />
+                      <figcaption class="media-slide-caption">
+                        <div>
+                          <strong>Media Feature 04</strong>
+                          <span>Document extract</span>
+                        </div>
+                        <span>4 / 15</span>
+                      </figcaption>
+                    </figure>
+                    <figure class="media-slide">
+                      <img src="images/Media/08_page_1.png" alt="Bhupinder S. Liddar media feature 5" loading="lazy" />
+                      <figcaption class="media-slide-caption">
+                        <div>
+                          <strong>Media Feature 05</strong>
+                          <span>Press clipping</span>
+                        </div>
+                        <span>5 / 15</span>
+                      </figcaption>
+                    </figure>
+                    <figure class="media-slide">
+                      <img src="images/Media/09_page_1.png" alt="Bhupinder S. Liddar media feature 6" loading="lazy" />
+                      <figcaption class="media-slide-caption">
+                        <div>
+                          <strong>Media Feature 06</strong>
+                          <span>Press clipping</span>
+                        </div>
+                        <span>6 / 15</span>
+                      </figcaption>
+                    </figure>
+                    <figure class="media-slide">
+                      <img src="images/Media/10_page_1.png" alt="Bhupinder S. Liddar media feature 7" loading="lazy" />
+                      <figcaption class="media-slide-caption">
+                        <div>
+                          <strong>Media Feature 07</strong>
+                          <span>Publication scan</span>
+                        </div>
+                        <span>7 / 15</span>
+                      </figcaption>
+                    </figure>
+                    <figure class="media-slide">
+                      <img src="images/Media/12_page_1.png" alt="Bhupinder S. Liddar media feature 8" loading="lazy" />
+                      <figcaption class="media-slide-caption">
+                        <div>
+                          <strong>Media Feature 08</strong>
+                          <span>Editorial clipping</span>
+                        </div>
+                        <span>8 / 15</span>
+                      </figcaption>
+                    </figure>
+                    <figure class="media-slide">
+                      <img src="images/Media/15_page_1.png" alt="Bhupinder S. Liddar media feature 9" loading="lazy" />
+                      <figcaption class="media-slide-caption">
+                        <div>
+                          <strong>Media Feature 09</strong>
+                          <span>Document extract</span>
+                        </div>
+                        <span>9 / 15</span>
+                      </figcaption>
+                    </figure>
+                    <figure class="media-slide">
+                      <img src="images/Media/16_page_1.png" alt="Bhupinder S. Liddar media feature 10" loading="lazy" />
+                      <figcaption class="media-slide-caption">
+                        <div>
+                          <strong>Media Feature 10</strong>
+                          <span>Press clipping</span>
+                        </div>
+                        <span>10 / 15</span>
+                      </figcaption>
+                    </figure>
+                    <figure class="media-slide">
+                      <img src="images/Media/17pdf_page_1.png" alt="Bhupinder S. Liddar media feature 11" loading="lazy" />
+                      <figcaption class="media-slide-caption">
+                        <div>
+                          <strong>Media Feature 11</strong>
+                          <span>Document extract</span>
+                        </div>
+                        <span>11 / 15</span>
+                      </figcaption>
+                    </figure>
+                    <figure class="media-slide">
+                      <img src="images/Media/20260403151326_page_1.png" alt="Bhupinder S. Liddar media feature 12" loading="lazy" />
+                      <figcaption class="media-slide-caption">
+                        <div>
+                          <strong>Media Feature 12</strong>
+                          <span>Archive image</span>
+                        </div>
+                        <span>12 / 15</span>
+                      </figcaption>
+                    </figure>
+                    <figure class="media-slide">
+                      <img src="images/Media/20260403151614_page_1.png" alt="Bhupinder S. Liddar media feature 13" loading="lazy" />
+                      <figcaption class="media-slide-caption">
+                        <div>
+                          <strong>Media Feature 13</strong>
+                          <span>Archive image</span>
+                        </div>
+                        <span>13 / 15</span>
+                      </figcaption>
+                    </figure>
+                    <figure class="media-slide">
+                      <img src="images/Media/20260403151713_page_1.png" alt="Bhupinder S. Liddar media feature 14" loading="lazy" />
+                      <figcaption class="media-slide-caption">
+                        <div>
+                          <strong>Media Feature 14</strong>
+                          <span>Archive image</span>
+                        </div>
+                        <span>14 / 15</span>
+                      </figcaption>
+                    </figure>
+                    <figure class="media-slide">
+                      <img src="images/Media/img11.jpg" alt="Bhupinder S. Liddar media feature 15" loading="lazy" />
+                      <figcaption class="media-slide-caption">
+                        <div>
+                          <strong>Media Feature 15</strong>
+                          <span>Magazine visual</span>
+                        </div>
+                        <span>15 / 15</span>
+                      </figcaption>
+                    </figure>
+                  </div>
+
+                  <div class="media-carousel-nav">
+                    <button class="media-carousel-btn" type="button" data-carousel-prev aria-label="Show previous media image">
+                      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 18l-6-6 6-6"></path>
+                      </svg>
+                    </button>
+                    <button class="media-carousel-btn" type="button" data-carousel-next aria-label="Show next media image">
+                      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M9 18l6-6-6-6"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="media-carousel-footer">
+                  <div class="media-carousel-counter" data-carousel-counter>01 / 15</div>
+                  <div class="media-carousel-dots" role="tablist" aria-label="Media image navigation">
+                    <button class="media-carousel-dot" type="button" data-carousel-dot="0" aria-label="Go to media image 1" aria-current="true"></button>
+                    <button class="media-carousel-dot" type="button" data-carousel-dot="1" aria-label="Go to media image 2"></button>
+                    <button class="media-carousel-dot" type="button" data-carousel-dot="2" aria-label="Go to media image 3"></button>
+                    <button class="media-carousel-dot" type="button" data-carousel-dot="3" aria-label="Go to media image 4"></button>
+                    <button class="media-carousel-dot" type="button" data-carousel-dot="4" aria-label="Go to media image 5"></button>
+                    <button class="media-carousel-dot" type="button" data-carousel-dot="5" aria-label="Go to media image 6"></button>
+                    <button class="media-carousel-dot" type="button" data-carousel-dot="6" aria-label="Go to media image 7"></button>
+                    <button class="media-carousel-dot" type="button" data-carousel-dot="7" aria-label="Go to media image 8"></button>
+                    <button class="media-carousel-dot" type="button" data-carousel-dot="8" aria-label="Go to media image 9"></button>
+                    <button class="media-carousel-dot" type="button" data-carousel-dot="9" aria-label="Go to media image 10"></button>
+                    <button class="media-carousel-dot" type="button" data-carousel-dot="10" aria-label="Go to media image 11"></button>
+                    <button class="media-carousel-dot" type="button" data-carousel-dot="11" aria-label="Go to media image 12"></button>
+                    <button class="media-carousel-dot" type="button" data-carousel-dot="12" aria-label="Go to media image 13"></button>
+                    <button class="media-carousel-dot" type="button" data-carousel-dot="13" aria-label="Go to media image 14"></button>
+                    <button class="media-carousel-dot" type="button" data-carousel-dot="14" aria-label="Go to media image 15"></button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="article-card fade-in visible" id="featured-essay" aria-labelledby="featured-essay-title">
+              <div class="article-card-header">
+                <div>
+                  <p class="article-kicker">Featured Essay</p>
+                  <h2 class="article-card-title" id="featured-essay-title">Opinion: National Days dilemma</h2>
+                </div>
+                <span class="article-meta">Vancouver Sun</span>
+              </div>
+
+              <p class="article-lead">
+                A full opinion piece exploring nationalism, public symbolism, immigrant identity,
+                and the meaning of political loyalty in multicultural Canada.
+              </p>
+              <p>
+                <a
+                  class="publication-link"
+                  href="https://vancouversun.com/opinion/opinion-national-days-dilemma"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Read the Vancouver Sun source
+                </a>
+              </p>
+
+              <div class="article-body">
+                <p>
+                  Come Aug. 14 and 15, some in the Pakistani- and Indian-Canadian communities
+                  will fly flags and sing national anthems to celebrate the independence days of
+                  their respective former homelands, ironically the very countries they left voluntarily
+                  to enjoy the Canadian way of life.
+                </p>
+                <p>
+                  The displaying of flags originated on battlefields to identify warring factions.
+                  Although national flags have come a long way from serving that purpose, they remain
+                  potent political symbols of nationalism. The national anthem, while evoking emotional
+                  sentiments, also sings the praises of a country. What fascinates and baffles, however,
+                  is that many immigrants were not brought to Canada under duress or against their will,
+                  but chose to leave their homelands and come here voluntarily.
+                </p>
+
+                <div class="article-pullquote">
+                  <p>
+                    In a multicultural Canada, cultural celebrations are one thing; public displays of
+                    political loyalty to former homelands are something else entirely.
+                  </p>
+                </div>
+
+                <p>
+                  Celebrating St. Patrick's Day, Vaisakhi, or Caribana are cultural and religious occasions,
+                  not political ones, and they do not evoke dual political loyalty in the same way. "Loyalty"
+                  is the key word here. Singing national anthems and saluting flags of former homelands can
+                  project images of split loyalty and divided patriotism. It may be less troubling when Canadians
+                  of Italian or Chilean origins wave those flags during the soccer World Cup, but the symbolism
+                  remains political when national days are publicly marked.
+                </p>
+                <p>
+                  Fortunately, in today's multicultural Canada, one enjoys the liberty to speak in one's mother
+                  tongue, eat ethnic cuisine, dress in national attire, and participate in cultural events from
+                  coast to coast to coast. All that the adopted country expects in return is political loyalty
+                  to one flag and one national anthem, that of Canada. Emotional attachment may remain, but it
+                  need not become a public political display.
+                </p>
+                <p>
+                  The problem of divided loyalties also has roots in Canada's British political class. Canada's
+                  two political tribes, English and French, imported their historical political and cultural
+                  rivalries into the new country with little regard for Indigenous peoples already here. As a
+                  result of English-French struggle, the victorious British designated the Union Jack as Canada's
+                  flag, despite French-Canadian sentiment, until the Maple Leaf was finally adopted in 1965.
+                </p>
+                <p>
+                  Foreign diplomatic missions quite properly fly their own flags on official buildings and host
+                  national-day receptions on embassy premises or in hotels. Canadians and members of diaspora
+                  communities may appropriately attend those events. Yet it is different when Canadians themselves
+                  host or organize celebrations for the national days of former homelands. The article points to
+                  a 2013 event in Toronto where the Indian Consulate General "sponsored" a public Independence Day
+                  program for the diaspora.
+                </p>
+                <p>
+                  In the 1990s, Ottawa's mayor chose to fly the flag on the national day of each country with
+                  diplomatic relations with Canada and invited local diaspora communities to mark those occasions.
+                  The effort was criticized as a vote-getting exercise and later backfired in September 2014,
+                  when Vietnamese-Canadians strongly protested the flying of the flag of Communist Vietnam, the
+                  very regime many had fled.
+                </p>
+                <p>
+                  Some may ask, "What's in a flag?" Yet after the narrow defeat of Quebec's 1995 sovereignty
+                  referendum, then-Deputy Prime Minister and Heritage Minister Sheila Copps ordered all federal
+                  government buildings across Canada to fly the Maple Leaf as a visible symbol of federal presence.
+                </p>
+                <p>
+                  Canada, still a relatively young country, continues building its own institutions. The argument
+                  here is that Canadians should contribute to that nation-building project rather than reinforce
+                  signals of split loyalty and patriotism. As at the Olympic Games, one competes under only one flag
+                  and sings only one national anthem. Accordingly, the only flag Canadians need to fly is the Maple
+                  Leaf, the only anthem they need to sing is "O Canada," and the only national day they need to
+                  celebrate as citizens is July 1.
+                </p>
+              </div>
+
+              <p class="article-signoff">
+                Bhupinder Liddar is identified in the source text as a retired Canadian diplomat and former
+                editor and publisher of <em>Diplomat &amp; International Canada</em> magazine.
+              </p>
+            </section>
+
+            <section class="article-card fade-in visible" id="publication-directory" aria-labelledby="publication-directory-title">
+              <div class="article-card-header">
+                <div>
+                  <p class="article-kicker">Publication Directory</p>
+                  <h2 class="article-card-title" id="publication-directory-title">Where the commentary appears</h2>
+                </div>
+              </div>
+
+              <p class="article-lead">
+                The supplied document references author pages and selected articles across four publications.
+                Those references are organized below for quick browsing.
+              </p>
+
+              <div class="publication-grid">
+                <article class="publication-card fade-in visible">
+                  <div class="publication-topline">
+                    <p class="publication-kicker">Canada's National Observer</p>
+                    <span class="publication-tag">Author Page</span>
+                  </div>
+                  <h3 class="publication-card-title">National Observer profile</h3>
+                  <p class="publication-intro">
+                    The profile describes Bhupinder S. Liddar as someone who began on Parliament Hill in 1976,
+                    served in the Parliamentary Press Gallery, led <em>Diplomat &amp; International Canada</em>,
+                    and retired as a Canadian diplomat.
+                  </p>
+                  <a
+                    class="publication-link"
+                    href="https://www.nationalobserver.com/u/bhupinder-liddar"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Visit author page
+                  </a>
+                </article>
+
+                <article class="publication-card fade-in visible">
+                  <div class="publication-topline">
+                    <p class="publication-kicker">Ottawa Citizen</p>
+                    <span class="publication-tag">Latest Stories</span>
+                  </div>
+                  <h3 class="publication-card-title">Selected Ottawa Citizen listings</h3>
+                  <ul class="article-list">
+                    <li>
+                      <strong>Liddar: India snubbed Canada but the prime minister still picked up points</strong>
+                      <p>Referenced in the supplied source as one of the latest Ottawa Citizen stories by Bhupinder S. Liddar.</p>
+                    </li>
+                    <li>
+                      <strong>Liddar: Why the next Governor General should be indigenous</strong>
+                      <p>A listed opinion piece reflecting commentary on national institutions and representation.</p>
+                    </li>
+                    <li>
+                      <strong>Liddar: The only national flag you should fly is Canadian</strong>
+                      <p>A closely aligned theme with the featured essay on public symbolism and citizenship.</p>
+                    </li>
+                    <li>
+                      <strong>Opinion: National Days dilemma</strong>
+                      <p>The source document also identifies this argument within the Ottawa Citizen listing context.</p>
+                    </li>
+                  </ul>
+                  <a
+                    class="publication-link"
+                    href="https://ottawacitizen.com/author/bhupinder-s-liddar/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Browse Ottawa Citizen author page
+                  </a>
+                </article>
+
+                <article class="publication-card fade-in visible">
+                  <div class="publication-topline">
+                    <p class="publication-kicker">New Canadian Media</p>
+                    <span class="publication-tag">Commentary + Top Stories</span>
+                  </div>
+                  <h3 class="publication-card-title">Selected New Canadian Media articles</h3>
+                  <p class="publication-intro">
+                    The author note in the document identifies Bhupinder S. Liddar as a retired Canadian diplomat,
+                    former publisher-editor of <em>Diplomat &amp; International Canada</em>, and a member of the NCM Collective.
+                  </p>
+                  <ul class="article-list">
+                    <li>
+                      <span>October 6, 2020 &bull; Commentary</span>
+                      <strong>Khalistan Is A Sikh Project: Milewski and Gang Get Most Of Their Drivel Wrong</strong>
+                      <p>Presented in the source as a response to Terry Milewski's controversial report.</p>
+                    </li>
+                    <li>
+                      <span>August 25, 2017 &bull; Top Stories</span>
+                      <strong>Sikhs Make World Go Round in Oliver</strong>
+                      <p>
+                        A reported feature on Oliver, British Columbia, the Okanagan Valley, and the visible role
+                        of the Sikh community in a town of roughly 5,000 people.
+                      </p>
+                    </li>
+                    <li>
+                      <span>July 4, 2016 &bull; Commentary</span>
+                      <strong>The Bad and Ugly Brexit</strong>
+                      <p>
+                        The article is introduced as an argument that Britain's departure from the European Union
+                        followed the pattern of a bad and ugly divorce.
+                      </p>
+                    </li>
+                  </ul>
+                  <a
+                    class="publication-link"
+                    href="https://newcanadianmedia.ca/author/bhupinder-liddar/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Browse New Canadian Media author page
+                  </a>
+                </article>
+
+                <article class="publication-card fade-in visible">
+                  <div class="publication-topline">
+                    <p class="publication-kicker">The Hill Times</p>
+                    <span class="publication-tag">Opinion</span>
+                  </div>
+                  <h3 class="publication-card-title">Selected Hill Times articles</h3>
+                  <ul class="article-list">
+                    <li>
+                      <span>October 19, 2023 &bull; Opinion</span>
+                      <strong>Israeli-Palestinian conflict's solution</strong>
+                      <p>The source summary states that a two-state solution remains the only answer.</p>
+                    </li>
+                    <li>
+                      <span>March 5, 2018 &bull; Opinion</span>
+                      <strong>Was Trudeau's trip to prove he's more 'Sikh' than Jagmeet?</strong>
+                      <p>
+                        Described as commentary on Canada-India relations and the domestic political meaning of the trip.
+                      </p>
+                    </li>
+                    <li>
+                      <span>February 17, 2018 &bull; Opinion</span>
+                      <strong>Trudeau's in India to win Indo-Canadian votes</strong>
+                      <p>The supplied text frames the visit within a longer pattern of politically motivated India trips.</p>
+                    </li>
+                    <li>
+                      <span>July 17, 2017 &bull; Opinion</span>
+                      <strong>A new world order emerges at Group of 20, Canada's diplomatic currency increases on world stage</strong>
+                      <p>
+                        Summarized as an analysis of shifting leadership among Germany, France, and Canada in the
+                        free world after the G20.
+                      </p>
+                    </li>
+                  </ul>
+                  <a
+                    class="publication-link"
+                    href="https://www.hilltimes.com/ht_author/bhupinder-s-liddar/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Browse The Hill Times author page
+                  </a>
+                </article>
+              </div>
+            </section>
+
+            <section class="articles-links-card fade-in visible" id="source-links" aria-labelledby="source-links-title">
+              <p class="link-kicker">External Links</p>
+              <h2 class="article-card-title" id="source-links-title">Direct publication references</h2>
+              <p>
+                Quick access to the publication and author pages referenced in the source material.
+              </p>
+
+              <div class="external-links">
+                <a href="https://www.nationalobserver.com/u/bhupinder-liddar" target="_blank" rel="noopener noreferrer">
+                  <strong>Canada's National Observer</strong>
+                  <span>Author profile and publication archive for Bhupinder Liddar.</span>
+                </a>
+                <a href="https://vancouversun.com/opinion/opinion-national-days-dilemma" target="_blank" rel="noopener noreferrer">
+                  <strong>Vancouver Sun</strong>
+                  <span>Featured opinion piece: "Opinion: National Days dilemma."</span>
+                </a>
+                <a href="https://ottawacitizen.com/author/bhupinder-s-liddar/" target="_blank" rel="noopener noreferrer">
+                  <strong>Ottawa Citizen</strong>
+                  <span>Latest stories and author archive.</span>
+                </a>
+                <a href="https://newcanadianmedia.ca/author/bhupinder-liddar/" target="_blank" rel="noopener noreferrer">
+                  <strong>New Canadian Media</strong>
+                  <span>Commentary and feature archive.</span>
+                </a>
+                <a href="https://www.hilltimes.com/ht_author/bhupinder-s-liddar/" target="_blank" rel="noopener noreferrer">
+                  <strong>The Hill Times</strong>
+                  <span>Opinion archive and political commentary.</span>
+                </a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const carousel = document.querySelector("[data-carousel]");
+      if (!carousel) {
+        return;
+      }
+
+      const track = carousel.querySelector(".media-carousel-track");
+      const slides = Array.from(carousel.querySelectorAll(".media-slide"));
+      const dots = Array.from(carousel.querySelectorAll("[data-carousel-dot]"));
+      const prevBtn = carousel.querySelector("[data-carousel-prev]");
+      const nextBtn = carousel.querySelector("[data-carousel-next]");
+      const counter = carousel.querySelector("[data-carousel-counter]");
+      const total = slides.length;
+      let currentIndex = 0;
+      let autoplayId = null;
+
+      function render(index) {
+        currentIndex = (index + total) % total;
+        track.style.transform = "translateX(-" + (currentIndex * 100) + "%)";
+
+        dots.forEach(function (dot, dotIndex) {
+          dot.setAttribute("aria-current", String(dotIndex === currentIndex));
+        });
+
+        if (counter) {
+          const currentLabel = String(currentIndex + 1).padStart(2, "0");
+          const totalLabel = String(total).padStart(2, "0");
+          counter.textContent = currentLabel + " / " + totalLabel;
+        }
+      }
+
+      function startAutoplay() {
+        stopAutoplay();
+        autoplayId = window.setInterval(function () {
+          render(currentIndex + 1);
+        }, 4500);
+      }
+
+      function stopAutoplay() {
+        if (autoplayId !== null) {
+          window.clearInterval(autoplayId);
+          autoplayId = null;
+        }
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", function () {
+          render(currentIndex - 1);
+          startAutoplay();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener("click", function () {
+          render(currentIndex + 1);
+          startAutoplay();
+        });
+      }
+
+      dots.forEach(function (dot, index) {
+        dot.addEventListener("click", function () {
+          render(index);
+          startAutoplay();
+        });
+      });
+
+      carousel.addEventListener("mouseenter", stopAutoplay);
+      carousel.addEventListener("mouseleave", startAutoplay);
+
+      render(0);
+      startAutoplay();
+    });
+  </script>
+</body>
+</html>
