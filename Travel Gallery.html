@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Travel memories of Bhupinder Singh Liddar presented in a curated gallery from destinations across the world." />
+  <meta name="keywords" content="Bhupinder Singh Liddar, travel gallery, world travel, diplomacy, international memories" />
+  <meta name="author" content="Bhupinder Singh Liddar" />
+  <meta name="robots" content="index, follow" />
+  <title>Bhupinder Singh Liddar | Travel Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .travel-banner {
+      background:
+        radial-gradient(circle at top right, rgba(212, 175, 55, 0.16), transparent 26%),
+        radial-gradient(circle at bottom left, rgba(17, 34, 64, 0.08), transparent 32%),
+        linear-gradient(135deg, #f5f7fa 0%, #ffffff 68%);
+    }
+
+    .travel-banner-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+      gap: 40px;
+      align-items: start;
+    }
+
+    .travel-banner-stats {
+      display: grid;
+      gap: 18px;
+    }
+
+    .travel-stat-card {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(10, 25, 47, 0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 16px;
+      box-shadow: var(--shadow-sm);
+      padding: 22px 24px;
+    }
+
+    .travel-stat-value {
+      display: block;
+      font-family: "Playfair Display", serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .travel-stat-label {
+      display: block;
+      margin-top: 8px;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+      font-weight: 400;
+    }
+
+    .travel-collection {
+      background:
+        linear-gradient(180deg, #ffffff 0%, #f8f6f1 100%);
+    }
+
+    .travel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .travel-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid rgba(203, 213, 225, 0.95);
+      border-radius: 18px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .travel-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(212, 175, 55, 0.45);
+    }
+
+    .travel-media {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(10, 25, 47, 0.08), rgba(212, 175, 55, 0.12));
+    }
+
+    .travel-media img,
+    .travel-media video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+
+    .travel-card:hover .travel-media img,
+    .travel-card:hover .travel-media video {
+      transform: scale(1.04);
+    }
+
+    .travel-media-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 1;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(10, 25, 47, 0.84);
+      color: var(--white);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .travel-card-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: 14px;
+      padding: 20px;
+    }
+
+    .travel-card-index {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .travel-card-title {
+      margin: 0;
+      color: var(--navy);
+      font-family: "Playfair Display", serif;
+      font-size: 1.08rem;
+      line-height: 1.45;
+    }
+
+    .travel-card-text {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.8;
+      font-weight: 400;
+    }
+
+    .travel-note {
+      margin-top: 28px;
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    @media (max-width: 1024px) {
+      .travel-banner-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .travel-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .travel-stat-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body class="inner-page" data-page="travel-gallery">
+  <div id="site-header"></div>
+
+  <main class="page-main">
+    <section class="page-banner section-pad travel-banner" aria-labelledby="travel-banner-title">
+      <div class="container">
+        <div class="travel-banner-grid">
+          <div class="page-banner-inner">
+            <p class="section-label">Travel Gallery</p>
+            <h1 class="page-banner-title" id="travel-banner-title">Journeys Across the World</h1>
+            <p class="page-banner-text">
+              A curated travel gallery arranged in the exact order of your original list, from Ottawa to Moscow Metro, with every photo matched to the correct memory.
+            </p>
+          </div>
+
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad travel-collection" aria-labelledby="travel-gallery-heading">
+      <div class="container">
+        <p class="section-label">Collection</p>
+        <h2 class="section-title" id="travel-gallery-heading">Travel Memories In Order</h2>
+        
+
+        <div class="travel-grid" id="galleryGrid"></div>
+
+      
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    const travelMemories = [
+      {
+        titleHtml: "Parliament Buildings, Ottawa, Canada.",
+        alt: "Parliament Buildings, Ottawa, Canada",
+        detail: "A classic Canadian landmark captured as the opening memory in the collection.",
+        src: "images/travel/travel 1.jpeg",
+        type: "image"
+      },
+      {
+        titleHtml: "Saligao Church, Goa, India. &#x271D;&#xFE0F;",
+        alt: "Saligao Church, Goa, India",
+        detail: "A serene architectural stop from Goa with a spiritual and historic presence.",
+        src: "images/travel/travel 2.jpeg",
+        type: "image"
+      },
+      {
+        titleHtml: "Osoyoos, British Columbia, Canada. &#x1F1E8;&#x1F1E6;",
+        alt: "Osoyoos, British Columbia, Canada",
+        detail: "A scenic British Columbia view presented as the third destination in the gallery.",
+        src: "images/travel/travel 3.jpeg",
+        type: "image"
+      },
+      {
+        titleHtml: "Burj Khalifa, Dubai. &#x1F1E6;&#x1F1EA;",
+        alt: "Burj Khalifa, Dubai",
+        detail: "A striking Dubai moment displayed as a video highlight in the fourth position.",
+        src: "images/travel/travel 4.mp4",
+        type: "video"
+      },
+      {
+        titleHtml: "Sikhs holiest shrine, Harmandir Sahib (Golden Temple), Amritsar, Punjab, India. &#x1F1EE;&#x1F1F3;",
+        alt: "Harmandir Sahib (Golden Temple), Amritsar, Punjab, India",
+        detail: "A meaningful visit to one of the most sacred sites in Sikhism.",
+        src: "images/travel/travel 5.jpeg",
+        type: "image"
+      },
+      {
+        titleHtml: "My ancestral home in Village Pohir, Punjab, India. &#x1F1EE;&#x1F1F3;",
+        alt: "My ancestral home in Village Pohir, Punjab, India",
+        detail: "A deeply personal family landmark and an important ancestral memory.",
+        src: "images/travel/travel 6.jpeg",
+        type: "image"
+      },
+      {
+        titleHtml: "Lisbon, Portugal. &#x1F1F5;&#x1F1F9;",
+        alt: "Lisbon, Portugal",
+        detail: "A warm cityscape from Portugal placed seventh in the story of the journey.",
+        src: "images/travel/travel 7.jpeg",
+        type: "image"
+      },
+      {
+        titleHtml: "Taj Mahal. &#x1F337;",
+        alt: "Taj Mahal",
+        detail: "A timeless world wonder, presented as one of the collection's signature highlights.",
+        src: "images/travel/travel 8.jpeg",
+        type: "image"
+      },
+      {
+        titleHtml: "Opera House, Sydney, Australia. &#x1F1E6;&#x1F1FA;",
+        alt: "Opera House, Sydney, Australia",
+        detail: "An iconic Australian landmark captured in the ninth travel moment.",
+        src: "images/travel/travel 9.jpeg",
+        type: "image"
+      },
+      {
+        titleHtml: "President Nelson Mandela&apos;s statue outside the South African Embassy, Washington DC. &#x1F1FA;&#x1F1F8;",
+        alt: "President Nelson Mandela statue outside the South African Embassy, Washington DC",
+        detail: "A powerful memorial moment from Washington, DC.",
+        src: "images/travel/travel 10.jpeg",
+        type: "image"
+      },
+      {
+        titleHtml: "Great Ocean Road, Australia. &#x1F1E6;&#x1F1FA;",
+        alt: "Great Ocean Road, Australia",
+        detail: "A coastal Australian landscape that adds movement and openness to the gallery.",
+        src: "images/travel/travel 11.jpeg",
+        type: "image"
+      },
+      {
+        titleHtml: "With my sisters, on Westminster Bridge, in London. &#x1F1EC;&#x1F1E7;",
+        alt: "With my sisters, on Westminster Bridge, in London",
+        detail: "A personal London memory shared with family.",
+        src: "images/travel/travel 12.jpeg",
+        type: "image"
+      },
+      {
+        titleHtml: "Kenya&apos;s Parliament Buildings in the capital, Nairobi. &#x1F1F0;&#x1F1EA;",
+        alt: "Kenya's Parliament Buildings in Nairobi",
+        detail: "A notable civic landmark from Nairobi, Kenya.",
+        src: "images/travel/travel 13.jpeg",
+        type: "image"
+      },
+      {
+        titleHtml: "Moscow. &#x1F1F7;&#x1F1FA;",
+        alt: "Moscow",
+        detail: "A city memory from Russia placed at the fourteenth stop in the gallery.",
+        src: "images/travel/travel 14.jpeg",
+        type: "image"
+      },
+      {
+        titleHtml: "On a house boat, on Dal Lake, Kashmir. &#x1F337;",
+        alt: "On a house boat, on Dal Lake, Kashmir",
+        detail: "A calm and picturesque Kashmir moment on the water.",
+        src: "images/travel/travel 15.jpeg",
+        type: "image"
+      },
+      {
+        titleHtml: "Mexico City. &#x1F1F2;&#x1F1FD;",
+        alt: "Mexico City",
+        detail: "A vibrant urban stop that continues the international travel sequence.",
+        src: "images/travel/travel 16.jpeg",
+        type: "image"
+      },
+      {
+        titleHtml: "Pyramids, Egypt. &#x1F1EA;&#x1F1EC;",
+        alt: "Pyramids, Egypt",
+        detail: "An unforgettable historical landmark from Egypt.",
+        src: "images/travel/travel 17.jpeg",
+        type: "image"
+      },
+      {
+        titleHtml: "West Virginia, USA. &#x1F1FA;&#x1F1F8;",
+        alt: "West Virginia, USA",
+        detail: "A scenic United States memory that adds landscape variety to the collection.",
+        src: "images/travel/travel 18.jpeg",
+        type: "image"
+      },
+      {
+        titleHtml: "View from train of beautiful English countryside. &#x1F1EC;&#x1F1E7;",
+        alt: "View from train of beautiful English countryside",
+        detail: "A moving countryside view seen from the train through England.",
+        src: "images/travel/travel 19.jpeg",
+        type: "image"
+      },
+      {
+        titleHtml: "Carnival Caribbean cruise. &#x1F6A2;",
+        alt: "Carnival Caribbean cruise",
+        detail: "A cruise memory that brings a lighter, vacation-forward chapter to the album.",
+        src: "images/travel/travel 20.jpeg",
+        type: "image"
+      },
+      {
+        titleHtml: "Lake Fewa, Pokhra, Nepal. &#x1F1F3;&#x1F1F5;",
+        alt: "Lake Fewa, Pokhra, Nepal",
+        detail: "A peaceful lake scene from Nepal included as the twenty-first stop.",
+        src: "images/travel/travel 21.jpeg",
+        type: "image"
+      },
+      {
+        titleHtml: "Kashmir. &#x1F337;",
+        alt: "Kashmir",
+        detail: "Another Kashmir memory, spotlighting the region's beauty and atmosphere.",
+        src: "images/travel/travel 22.jpeg",
+        type: "image"
+      },
+      {
+        titleHtml: "Vancouver, Canada. &#x1F1E8;&#x1F1E6;",
+        alt: "Vancouver, Canada",
+        detail: "A Canadian city memory placed toward the close of the collection.",
+        src: "images/travel/travel 23.jpeg",
+        type: "image"
+      },
+      {
+        titleHtml: "Moscow metro station. &#x1F1F7;&#x1F1FA;",
+        alt: "Moscow metro station",
+        detail: "A final architectural travel note from Moscow, closing the gallery.",
+        src: "images/travel/travel 24.jpeg",
+        type: "image"
+      }
+    ];
+
+    const galleryGrid = document.getElementById("galleryGrid");
+
+    travelMemories.forEach((memory, index) => {
+      const card = document.createElement("article");
+      card.className = "travel-card fade-in";
+
+      const media = memory.type === "video"
+        ? `
+          <div class="travel-media">
+            <span class="travel-media-badge">Video</span>
+            <video autoplay muted loop playsinline controls aria-label="${memory.alt}">
+              <source src="${memory.src}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        `
+        : `
+          <div class="travel-media">
+            <img src="${memory.src}" alt="${memory.alt}" loading="lazy">
+          </div>
+        `;
+
+      card.innerHTML = `
+        ${media}
+        <div class="travel-card-body">
+          <span class="travel-card-index">Stop ${index + 1}</span>
+          <h3 class="travel-card-title">${memory.titleHtml}</h3>
+          <p class="travel-card-text">${memory.detail}</p>
+        </div>
+      `;
+
+      galleryGrid.appendChild(card);
+    });
+  </script>
+  <script src="js/script.js"></script>
+</body>
+</html>
